@@ -17,6 +17,7 @@
                                autocomplete="email"
                                :required="true"
                         />
+                        <span v-if="form.errors.email" v-text="form.errors.email" class="text-red-500 text-xs mt-1" />
 
                         <Input name="password"
                                v-model:modelValue="form.password"
@@ -25,6 +26,7 @@
                                autocomplete="current-password"
                                :required="true"
                         />
+                        <span v-if="form.errors.email" v-text="form.errors.password" class="text-red-500 text-xs mt-1" />
 
                         <div>
                             <button type="submit"
