@@ -66,14 +66,10 @@ import {
 } from '@headlessui/vue'
 import {
     BellIcon,
-    CalendarIcon,
-    ChartBarIcon,
-    FolderIcon,
     HomeIcon,
-    InboxIcon,
     MenuAlt2Icon,
-    UsersIcon,
     XIcon,
+    LogoutIcon
 } from '@heroicons/vue/outline'
 import DesktopSidebar from "../Shared/DesktopSidebar";
 import MobileSidebar from "../Shared/MobileSidebar";
@@ -83,12 +79,8 @@ export default {
     data() {
         return {
             navigation: [
-                { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-                { name: 'Team', href: '#', icon: UsersIcon, current: false },
-                { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-                { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-                { name: 'Documents', href: '#', icon: InboxIcon, current: false },
-                { name: 'Reports', href: '#', icon: ChartBarIcon, current: false },
+                { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
+                { name: 'Log Out', href: '/logout', icon: LogoutIcon, current: false, method: 'post' }
             ]
         }
     },
