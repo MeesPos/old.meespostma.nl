@@ -69,7 +69,8 @@ import {
     HomeIcon,
     MenuAlt2Icon,
     XIcon,
-    LogoutIcon
+    LogoutIcon,
+    NewspaperIcon
 } from '@heroicons/vue/outline'
 import DesktopSidebar from "../Shared/DesktopSidebar";
 import MobileSidebar from "../Shared/MobileSidebar";
@@ -80,6 +81,7 @@ export default {
         return {
             navigation: [
                 { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
+                { name: 'Posts', href: '/dashboard/posts', icon: NewspaperIcon, current: false },
                 { name: 'Log Out', href: '/logout', icon: LogoutIcon, current: false, method: 'post' }
             ]
         }

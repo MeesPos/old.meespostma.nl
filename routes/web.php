@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\AdminBlogController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 Route::middleware('auth')->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-        Route::resource('post', AdminBlogController::class);
+        Route::resource('posts', BlogController::class);
     });
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 });
