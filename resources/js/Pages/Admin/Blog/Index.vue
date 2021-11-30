@@ -1,5 +1,5 @@
 <template>
-    <HeaderTitle title="Posts" />
+    <HeaderTitle title="Posts"/>
 
     <div class="pb-5 mt-3 sm:flex sm:items-center sm:justify-between">
         <h3 class="text-lg leading-6 font-medium text-gray-900">
@@ -22,13 +22,16 @@
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                         <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Title
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Category
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Created at
                             </th>
                             <th scope="col" class="relative px-6 py-3">
@@ -51,10 +54,10 @@
                                 {{ post.created_at }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <Link :href="post.url" class="text-indigo-600 hover:text-indigo-900" v-text="'View'" />
+                                <Link :href="post.url" class="text-indigo-600 hover:text-indigo-900" v-text="'View'"/>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <Link href="#" class="text-indigo-600 hover:text-indigo-900" v-text="'Edit'" />
+                                <Link href="#" class="text-indigo-600 hover:text-indigo-900" v-text="'Edit'"/>
                             </td>
                         </tr>
                         </tbody>
@@ -72,7 +75,7 @@ import HeaderTitle from "../../../Shared/Dashboard/HeaderTitle";
 export default {
     name: "Index",
     layout: Admin,
-    components: { HeaderTitle },
+    components: {HeaderTitle},
     data() {
         return {
             posts: [
