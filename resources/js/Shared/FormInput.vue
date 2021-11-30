@@ -1,11 +1,12 @@
 <template>
-    <div>
-        <label :for="name"
-               class="block text-sm font-medium text-gray-700"
-               v-text="label"
+    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+        <label
+            :for="name"
+            class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+            v-text="label"
         />
 
-        <div class="mt-1">
+        <div class="mt-1 sm:mt-0 sm:col-span-2">
             <input :id="name"
                    :name="name"
                    :type="type"
@@ -14,15 +15,14 @@
                    @input="$emit('update:modelValue', $event.target.value)"
                    :required="required"
                    :placeholder="placeholder"
-                   class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            />
+                   class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" />
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "Input",
+    name: "FormInput",
     props: {
         name: String,
         label: String,
@@ -35,7 +35,7 @@ export default {
     emits: ['update:modelValue'],
     methods: {
         changeModelValue(value) {
-            this.$emit('update:modelValue', value);
+            this.$emit('update:modelValue', true);
         }
     }
 }

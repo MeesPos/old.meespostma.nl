@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import Input from "../../Shared/Input"
+import Input from "../../Shared/AuthInput"
 import { useForm } from '@inertiajs/inertia-vue3'
 
 export default {

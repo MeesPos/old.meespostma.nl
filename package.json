@@ -26,6 +26,8 @@
         "@inertiajs/inertia-vue3": "^0.5.2",
         "@inertiajs/progress": "^0.2.6",
         "@tailwindcss/forms": "^0.3.4",
+        "@vueup/vue-quill": "^1.0.0-beta.7",
+        "quill-markdown-shortcuts": "0.0.10",
         "vue": "^3.2.22"
     }
 }

@@ -8,22 +8,12 @@ use Inertia\Inertia;
 
 class BlogController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Inertia\Response
-     */
-    public function index()
+    public function index(): \Inertia\Response
     {
         return Inertia::render('Admin/Blog/Index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(): \Inertia\Response
     {
         return Inertia::render('Admin/Blog/Create');
     }
