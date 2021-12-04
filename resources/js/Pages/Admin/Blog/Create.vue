@@ -1,7 +1,7 @@
 <template>
     <HeaderTitle title="Create Post" />
 
-    <form class="space-y-8 divide-y divide-gray-200">
+    <form @submit.prevent="submit" class="space-y-8 divide-y divide-gray-200">
         <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
             <div>
                 <div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
@@ -14,7 +14,9 @@
                     />
                     <span v-if="form.errors.title" v-text="form.errors.title" class="text-red-500 text-xs mt-1" />
 
-                    <MarkdownTextarea />
+                    <MarkdownTextarea
+                        v-model:modelValue="form.content"
+                    />
 
                     <ImageInput name="featured_image"
                         v-model:modelValue="form.featured_image"
@@ -242,8 +244,14 @@ export default {
         return {
             form: useForm({
                 title: '',
+                content: '',
                 featured_image: ''
             })
+        }
+    },
+    methods: {
+        submit() {
+            console.log(this.form);
         }
     }
 }

@@ -1,5 +1,8 @@
 <template>
-    <QuillEditor :options="quillConfig" />
+    <QuillEditor ref="editor"
+        :options="quillConfig"
+        @input="changeModelValue"
+    />
 </template>
 
 <script>
@@ -25,6 +28,9 @@ export default defineComponent({
     name: "MarkdownTextarea",
     components: {
         QuillEditor
+    },
+    props: {
+        modelValue: String
     },
     data() {
         return {
@@ -76,6 +82,12 @@ export default defineComponent({
                 }
             },
 
+        }
+    },
+    emits: ['update:modelValue'],
+    methods: {
+        changeModelValue() {
+            this.$emit('update:modelValue', this.$refs.editor.getHTML())
         }
     }
 })
