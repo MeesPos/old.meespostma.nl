@@ -23,6 +23,7 @@
                         label="Featured Image"
                     />
 
+                    <CategorySelect />
                 </div>
             </div>
 
@@ -230,11 +231,13 @@ import FormInput from "../../../Shared/FormInput";
 import MarkdownTextarea from "../../../Shared/MarkdownTextarea";
 import { useForm } from "@inertiajs/inertia-vue3";
 import ImageInput from "../../../Shared/ImageInput";
+import CategorySelect from "../../../Shared/CategorySelect";
 
 export default {
     name: "Create",
     layout: Admin,
     components: {
+        CategorySelect,
         ImageInput,
         FormInput,
         HeaderTitle,
@@ -246,7 +249,8 @@ export default {
                 title: '',
                 content: '',
                 featured_image: ''
-            })
+            }),
+            showModal: true
         }
     },
     methods: {
