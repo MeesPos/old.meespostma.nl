@@ -1,4 +1,32 @@
 <template>
+    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+        <label
+            for="category-select"
+            class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+            v-text="'Category'"
+        />
+
+        <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <select id="category-select"
+                ref="category-select"
+                @change="updateOption"
+                class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+            >
+                <option ref="add-category"
+                    label="Add Category"
+                >
+                    Add Category
+                </option>
+
+                <option v-for="(category, index) in categories"
+                    :selected="index === 0 || selectedOption === category.name"
+                    :label="category.name"
+                    v-text="category.name"
+                />
+            </select>
+        </div>
+    </div>
+
     <Modal v-model="showModal">
         <form @submit.prevent="submit">
             <h2 class="text-lg font-bold mb-2">Add Category</h2>
@@ -41,8 +69,6 @@
             </div>
         </form>
     </Modal>
-
-    <button type="button" @click="showModal = true">Open Modal</button>
 </template>
 
 <script>
@@ -58,6 +84,9 @@ export default {
         Modal,
         Textarea
     },
+    props: {
+        categories: Object
+    },
     data() {
         return {
             form: useForm({
@@ -65,19 +94,24 @@ export default {
                 color: '',
                 description: ''
             }),
-            categories: [
-                'Test',
-                'Test 2',
-                'Test 3'
-            ],
-            showModal: false
+            showModal: false,
+            selectedOption: ''
         }
     },
     methods: {
         submit() {
             this.form.post('/category/create', {
-                onSuccess: () => this.showModal = false
+                onSuccess: () => {
+                    this.showModal = false
+                    this.selectedOption = this.form.name;
+                    this.form.reset();
+                }
             });
+        },
+        updateOption() {
+            if(this.$refs["add-category"].selected === true) {
+                this.showModal = true;
+            }
         }
     }
 }

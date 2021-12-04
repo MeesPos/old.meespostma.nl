@@ -23,7 +23,7 @@
                         label="Featured Image"
                     />
 
-                    <CategorySelect />
+                    <CategorySelect :categories="categories" />
                 </div>
             </div>
 
@@ -236,6 +236,9 @@ import CategorySelect from "../../../Shared/CategorySelect";
 export default {
     name: "Create",
     layout: Admin,
+    props: {
+        categories: Object
+    },
     components: {
         CategorySelect,
         ImageInput,
