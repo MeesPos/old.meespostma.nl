@@ -29,6 +29,12 @@
                         v-model:modelValue="form.category"
                     />
                     <span v-if="form.errors.category" v-text="form.errors.category" class="text-red-500 text-xs mt-1" />
+
+                    <MultiSelect :options="tags"
+                        label="Tags"
+                        name="tags"
+                        v-model:modelValue="form.tags"
+                    />
                 </div>
             </div>
 
@@ -237,14 +243,17 @@ import MarkdownTextarea from "../../../Shared/MarkdownTextarea";
 import { useForm } from "@inertiajs/inertia-vue3";
 import ImageInput from "../../../Shared/ImageInput";
 import CategorySelect from "../../../Shared/CategorySelect";
+import MultiSelect from "../../../Shared/MultiSelect";
 
 export default {
     name: "Create",
     layout: Admin,
     props: {
-        categories: Object
+        categories: Object,
+        tags: Object
     },
     components: {
+        MultiSelect,
         CategorySelect,
         ImageInput,
         FormInput,
@@ -257,7 +266,8 @@ export default {
                 title: '',
                 content: '',
                 featured_image: '',
-                category: ''
+                category: '',
+                tags: []
             }),
             showModal: true
         }
