@@ -22,7 +22,6 @@ export default {
         name: String,
         label: String,
         modelValue: String
-    },
-    emits: ['update:modelValue']
+    }
 }
 </script>

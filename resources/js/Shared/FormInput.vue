@@ -31,7 +31,6 @@ export default {
         placeholder: String,
         required: Boolean,
         modelValue: String
-    },
-    emits: ['update:modelValue']
+    }
 }
 </script>

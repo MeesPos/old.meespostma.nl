@@ -84,7 +84,6 @@ export default defineComponent({
 
         }
     },
-    emits: ['update:modelValue'],
     methods: {
         changeModelValue() {
             this.$emit('update:modelValue', this.$refs.editor.getHTML())

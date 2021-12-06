@@ -42,7 +42,6 @@ export default {
         return {
             selected: false
         }
-    },
-    emits: ['update:modelValue']
+    }
 }
 </script>

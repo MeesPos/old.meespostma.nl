@@ -100,7 +100,6 @@ export default {
             selectedOption: ''
         }
     },
-    emits: ['update:modelValue'],
     methods: {
         submit() {
             this.form.post('/category/create', {
