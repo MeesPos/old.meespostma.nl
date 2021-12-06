@@ -43,11 +43,6 @@ export default {
             selected: false
         }
     },
-    emits: ['update:modelValue'],
-    methods: {
-        changeModelValue(value) {
-            this.$emit('update:modelValue', true);
-        }
-    }
+    emits: ['update:modelValue']
 }
 </script>

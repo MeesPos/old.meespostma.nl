@@ -17,13 +17,18 @@
                     <MarkdownTextarea
                         v-model:modelValue="form.content"
                     />
+                    <span v-if="form.errors.content" v-text="form.errors.content" class="text-red-500 text-xs mt-1" />
 
                     <ImageInput name="featured_image"
                         v-model:modelValue="form.featured_image"
                         label="Featured Image"
                     />
+                    <span v-if="form.errors.featured_image" v-text="form.errors.featured_image" class="text-red-500 text-xs mt-1" />
 
-                    <CategorySelect :categories="categories" />
+                    <CategorySelect :categories="categories"
+                        v-model:modelValue="form.category"
+                    />
+                    <span v-if="form.errors.category" v-text="form.errors.category" class="text-red-500 text-xs mt-1" />
                 </div>
             </div>
 
@@ -251,7 +256,8 @@ export default {
             form: useForm({
                 title: '',
                 content: '',
-                featured_image: ''
+                featured_image: '',
+                category: ''
             }),
             showModal: true
         }
