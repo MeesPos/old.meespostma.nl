@@ -18,8 +18,19 @@ class BlogController extends Controller
     public function create(): \Inertia\Response
     {
         return Inertia::render('Admin/Blog/Create', [
-            'categories' => Category::all(),
-            'tags' => Tag::all()
+            'categories' => Category::query()
+                ->get()
+                ->map(function ($category) {
+                    return [
+                        'id' => $category->id,
+                        'name' => $category->name
+                    ];
+            }),
+            'tags' => Tag::query()
+                ->get()
+                ->map(function ($tag) {
+                    return $tag->name;
+                })
         ]);
     }
 
