@@ -21,9 +21,9 @@
                     <span v-if="form.errors.featured_image" v-text="form.errors.featured_image" class="text-red-500 text-xs mt-1" />
 
                     <CategorySelect :categories="categories"
-                                    v-model:modelValue="form.category"
+                                    v-model:modelValue="form.category_id"
                     />
-                    <span v-if="form.errors.category" v-text="form.errors.category" class="text-red-500 text-xs mt-1" />
+                    <span v-if="form.errors.category_id" v-text="form.errors.category_id" class="text-red-500 text-xs mt-1" />
 
                     <MultiSelect :options="tags"
                                  label="Tags"
@@ -84,7 +84,7 @@ export default {
                 title: '',
                 content: '',
                 featured_image: '',
-                category: '',
+                category_id: '',
                 tags: []
             }),
             showModal: true
@@ -92,7 +92,11 @@ export default {
     },
     methods: {
         submit() {
-            console.log(this.form);
+            console.log(this.form.featured_image);
+
+            this.form.post('/dashboard/posts', {
+                forceFormData: true,
+            });
         }
     }
 }

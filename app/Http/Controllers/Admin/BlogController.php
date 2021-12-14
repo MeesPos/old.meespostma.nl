@@ -3,9 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostRequest;
 use App\Models\Category;
+use App\Models\Post;
+use App\Models\PostTag;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class BlogController extends Controller
@@ -37,12 +42,33 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+        $data = collect($request->validated());
+
+        $data['featured_image'] = $request->file('featured_image')->store('posts/featured_images', 'public');
+
+        $post = Post::query()
+            ->create($data->except('tags')->toArray());
+
+
+        foreach ($data['tags'] as $tag) {
+            $tag = Tag::query()
+                ->where('name', $tag)
+                ->firstOrCreate([
+                    'name' => $tag
+                ]);
+
+            PostTag::query()
+                ->updateOrCreate([
+                    'post_id' => $post['id'],
+                    'tag_id' => $tag['id']
+                ]);
+        }
+
+        return Redirect::route('posts.index');
     }
 
     /**
