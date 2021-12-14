@@ -9,6 +9,7 @@ use App\Models\Post;
 use App\Models\PostTag;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
@@ -17,7 +18,18 @@ class BlogController extends Controller
 {
     public function index(): \Inertia\Response
     {
-        return Inertia::render('Admin/Blog/Index');
+        return Inertia::render('Admin/Blog/Index', [
+            'posts' => Post::query()
+                ->paginate(10)
+                ->through(function ($post) {
+                    return [
+                        'id' => $post->id,
+                        'title' => $post->title,
+                        'category' => $post->category->name,
+                        'created_at' => Carbon::createFromDate($post->created_at)->format('d-m-Y')
+                    ];
+                })
+        ]);
     }
 
     public function create(): \Inertia\Response

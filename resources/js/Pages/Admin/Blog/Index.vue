@@ -2,9 +2,7 @@
     <HeaderTitle title="Posts"/>
 
     <div class="pb-5 mt-3 sm:flex sm:items-center sm:justify-between">
-        <h3 class="text-lg leading-6 font-medium text-gray-900">
-            All blog posts
-        </h3>
+        <div />
         <div class="mt-3 sm:mt-0 sm:ml-4">
             <Link
                 href="/dashboard/posts/create"
@@ -43,7 +41,7 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                        <tr v-for="post in posts" :key="post.email">
+                        <tr v-for="post in posts.data" :key="post.id">
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                 {{ post.title }}
                             </td>
@@ -63,6 +61,13 @@
                         </tbody>
                     </table>
                 </div>
+
+                <Pagination :links="posts.links"
+                    :from="posts.from"
+                    :to="posts.to"
+                    :total="posts.total"
+                    class="mt-6"
+                />
             </div>
         </div>
     </div>
@@ -71,22 +76,17 @@
 <script>
 import Admin from "../../../Layouts/Admin";
 import HeaderTitle from "../../../Shared/Dashboard/HeaderTitle";
+import Pagination from "../../../Shared/Pagination";
 
 export default {
     name: "Index",
     layout: Admin,
-    components: {HeaderTitle},
-    data() {
-        return {
-            posts: [
-                {
-                    title: 'Test',
-                    category: 'News',
-                    created_at: '28-11-2021',
-                    url: 'http://localhost:8080/test'
-                }
-            ]
-        }
+    components: {Pagination, HeaderTitle},
+    props: {
+        posts: Object
+    },
+    mounted() {
+        console.log(this.posts);
     }
 }
 </script>
