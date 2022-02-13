@@ -1,31 +1,18 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\CategoryResource\RelationManagers;
 
-use App\Filament\Resources\ProjectResource\Pages;
-use App\Filament\Resources\ProjectResource\RelationManagers;
-use App\Models\Project;
 use Filament\Forms;
-use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
-use Filament\Resources\Resource;
+use Filament\Resources\RelationManagers\HasManyRelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
 
-class ProjectResource extends Resource
+class ProjectsRelationManager extends HasManyRelationManager
 {
-    use Translatable;
-
-    protected static ?string $model = Project::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static string $relationship = 'projects';
 
     protected static ?string $recordTitleAttribute = 'title';
-
-    public static function getTranslatableLocales()
-    {
-        return ['en', 'nl'];
-    }
 
     public static function form(Form $form): Form
     {
@@ -62,21 +49,5 @@ class ProjectResource extends Resource
             ->filters([
                 //
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListProjects::route('/'),
-            'create' => Pages\CreateProject::route('/create'),
-            'edit' => Pages\EditProject::route('/{record}/edit'),
-        ];
     }
 }

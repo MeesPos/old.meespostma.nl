@@ -10,14 +10,14 @@ class Project extends Model
 {
     use HasFactory, HasTranslations;
 
-    public $translatable = [
+    public array $translatable = [
         'title',
         'content'
     ];
 
-    protected $guarded = [];
+    protected array $guarded = [];
 
-    public function category()
+    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
