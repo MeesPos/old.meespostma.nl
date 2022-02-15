@@ -1,4 +1,12 @@
 {
     "home.header.title": "Hi! I'm Mees Postma.",
-    "home.header.subtitle": "Software Developer and Travel Fanatic"
+    "home.header.subtitle": "Software Developer and Travel Fanatic",
+    "home.header.description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, hic veritatis? Debitis fuga quisquam tenetur voluptatum. Accusantium aliquid dolor facere incidunt maiores odio, omnis quam quo similique veritatis! Ipsum, quam.",
+    "home.my-projects.description": "View all my projects that I am proud of.",
+    "home.contact-me.description": "Feel free to send me a message.",
+
+    "about-me": "About Me",
+
+    "my-projects": "My Projects",
+    "contact-me": "Contact Me"
 }
