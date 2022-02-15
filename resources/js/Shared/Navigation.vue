@@ -20,24 +20,16 @@
                     <span class="w-full h-0.5 bg-gray-900 absolute bottom-0 left-0"></span>
                 </a>
                 <a href="#_" class="relative group">
-                    <span>Pricing</span>
+                    <span>{{ this.$t('about-me') }}</span>
                     <span class="w-full h-0.5 bg-black opacity-0 group-hover:opacity-100 transform -translate-y-0.5 group-hover:translate-y-0 transition-all ease-out duration-300 absolute bottom-0 left-0"></span>
                 </a>
                 <a href="#_" class="relative group">
-                    <span>Features</span>
-                    <span class="w-full h-0.5 bg-black opacity-0 group-hover:opacity-100 transform -translate-y-0.5 group-hover:translate-y-0 transition-all ease-out duration-300 absolute bottom-0 left-0"></span>
-                </a>
-                <a href="#_" class="relative group">
-                    <span>Contact</span>
+                    <span>{{ this.$t('my-projects') }}</span>
                     <span class="w-full h-0.5 bg-black opacity-0 group-hover:opacity-100 transform -translate-y-0.5 group-hover:translate-y-0 transition-all ease-out duration-300 absolute bottom-0 left-0"></span>
                 </a>
             </nav>
             <div class="absolute right-0 flex items-center h-full pr-10 space-x-6 font-medium">
-                <a href="#_" class="relative group">
-                    <span>Login</span>
-                    <span class="w-full h-0.5 bg-black opacity-0 group-hover:opacity-100 transform -translate-y-0.5 group-hover:translate-y-0 transition-all ease-out duration-300 absolute bottom-0 left-0"></span>
-                </a>
-                <a href="#_" class="px-6 py-2 transition-colors duration-75 border-2 border-gray-900 rounded-full hover:bg-gray-900 hover:text-white">Signup</a>
+                <a href="#_" class="px-6 py-2 transition-colors duration-75 border-2 border-gray-900 rounded-full hover:bg-gray-900 hover:text-white">{{ this.$t('contact-me') }}</a>
             </div>
         </div>
     </div>
