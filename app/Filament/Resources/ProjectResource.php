@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use Closure;
 use App\Filament\Resources\ProjectResource\Pages;
 use App\Filament\Resources\ProjectResource\RelationManagers;
 use App\Models\Project;
@@ -11,6 +12,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Illuminate\Support\Str;
 
 class ProjectResource extends Resource
 {
@@ -32,6 +34,13 @@ class ProjectResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
+                    ->required()
+                    ->reactive()
+                    ->afterStateUpdated(function (Closure $set, $state) {
+                        $set('slug', Str::slug($state));
+                    }),
+
+                Forms\Components\TextInput::make('slug')
                     ->required(),
 
                 Forms\Components\BelongsToSelect::make('category_id')
@@ -45,6 +54,10 @@ class ProjectResource extends Resource
                 Forms\Components\MarkdownEditor::make('content')
                     ->required(),
 
+                Forms\Components\Textarea::make('excerpt')
+                    ->required()
+                    ->maxLength(140),
+
                 Forms\Components\TextInput::make('live_url')
                     ->url(),
 
@@ -57,7 +70,9 @@ class ProjectResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('title'),
+
+                Tables\Columns\TextColumn::make('slug')
             ])
             ->filters([
                 //
