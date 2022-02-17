@@ -1,8 +1,10 @@
 <template>
-
-    <!-- Section 1 -->
-    <section class="bg-white">
-        <div class="px-4 py-10 mx-auto lg:max-w-screen-xl sm:max-w-xl md:max-w-full sm:px-6 md:px-8 lg:py-20 sm:py-16">
+    <div class="px-4 my-4 sm:my-8 lg:my-10 mx-auto lg:max-w-screen-xl sm:max-w-xl md:max-w-full sm:px-6 md:px-8">
+        <div class="space-y-6">
+            <h1 class="text-4xl leading-tight font-bold text-gray-900 xl:text-5xl">{{ this.$t('my-projects') }}.</h1>
+            <p class="max-w-lg text-gray-600 md:max-w-4xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam asperiores beatae commodi corporis, cumque dolore fugit illum impedit in incidunt iure magnam molestiae nihil nulla numquam odit optio sunt, tenetur.</p>
+        </div>
+        <div class="py-8 lg:py-12 sm:py-10">
             <div class="grid gap-x-8 gap-y-12 sm:gap-y-16 md:grid-cols-2 lg:grid-cols-3">
                 <div v-for="project in projects" :key="project.id" class="relative">
                     <a href="#_" class="block overflow-hidden group rounded-xl">
@@ -23,7 +25,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 </template>
 
 <script>
