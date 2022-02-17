@@ -41,7 +41,8 @@ class ProjectResource extends Resource
                     }),
 
                 Forms\Components\TextInput::make('slug')
-                    ->required(),
+                    ->required()
+                    ->unique(),
 
                 Forms\Components\BelongsToSelect::make('category_id')
                     ->label('Category')

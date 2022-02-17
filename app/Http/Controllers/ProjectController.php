@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ProjectCollection;
+use App\Http\Resources\ProjectResource;
 use App\Models\Project;
 use Inertia\Inertia;
 
@@ -17,6 +18,11 @@ class ProjectController extends Controller
 
     public function show($slug)
     {
-        return 'Landed';
+        return Inertia::render('Projects/Show', [
+            'project' => ProjectResource::make(Project::query()
+                ->where('slug', $slug)
+                ->first()
+            )
+        ]);
     }
 }
