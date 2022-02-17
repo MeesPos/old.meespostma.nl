@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ProjectResource;
+use App\Http\Resources\ProjectCollection;
 use App\Models\Project;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class ProjectController extends Controller
@@ -13,7 +11,7 @@ class ProjectController extends Controller
     public function index(): \Inertia\Response
     {
         return Inertia::render('Projects/Index', [
-            'projects' => ProjectResource::make(Project::query()->first())
+            'projects' => ProjectCollection::make(Project::all())
         ]);
     }
 }
