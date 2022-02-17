@@ -1,5 +1,5 @@
 import { createApp, h } from 'vue'
-import { createInertiaApp } from '@inertiajs/inertia-vue3'
+import {createInertiaApp, Link} from '@inertiajs/inertia-vue3'
 import { i18nVue } from 'laravel-vue-i18n'
 import Layout from './Layouts/Layout'
 
@@ -19,6 +19,7 @@ createInertiaApp({
             .use(i18nVue, {
                 resolve: lang => import(`../../lang/${lang}.json`)
             })
+            .component('Link', Link)
             .mount(el)
     },
 })

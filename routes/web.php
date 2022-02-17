@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('projects', [\App\Http\Controllers\ProjectController::class, 'index']);
+Route::get('projects/{slug}', [\App\Http\Controllers\ProjectController::class, 'show']);

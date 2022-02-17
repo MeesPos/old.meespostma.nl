@@ -14,4 +14,9 @@ class ProjectController extends Controller
             'projects' => ProjectCollection::make(Project::all())
         ]);
     }
+
+    public function show($slug)
+    {
+        return 'Landed';
+    }
 }
