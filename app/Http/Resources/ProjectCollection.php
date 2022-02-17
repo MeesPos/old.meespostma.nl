@@ -6,6 +6,8 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class ProjectCollection extends ResourceCollection
 {
+    public static $wrap = null;
+
     public $collects = ProjectResource::class;
 
     protected function collectResource($resource)
