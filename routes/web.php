@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return \Inertia\Inertia::render('Home');
 });
+
+Route::get('projects', [\App\Http\Controllers\ProjectController::class, 'index']);
