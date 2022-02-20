@@ -18,6 +18,8 @@ class CategoryResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'slug' => $this->slug,
+            'content' => $this->content,
             'created_at' => Carbon::parse($this->created_at)->format('d-m-Y H:i')
         ];
     }

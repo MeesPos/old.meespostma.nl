@@ -8,12 +8,12 @@ use Inertia\Inertia;
 
 class CategoryController extends Controller
 {
-    public function index($title)
+    public function index($slug)
     {
         return Inertia::render('Categories/Index', [
             'category' => CategoryResource::make(
                 Category::query()
-                    ->where('title', $title)
+                    ->where('slug', $slug)
                     ->first()
             )
         ]);
