@@ -15,18 +15,17 @@
                 </div>
             </div>
             <nav :class="{ 'flex' : mobileMenuOpen, 'hidden md:flex' :  !mobileMenuOpen }" class="fixed top-0 left-0 z-20 flex-col items-start justify-start w-48 h-full min-h-screen p-10 space-y-5 font-medium duration-150 ease-out transform bg-white md:h-auto md:min-h-0 md:left-auto md:items-center md:h-full md:relative md:space-x-6 lg:space-x-10 md:space-y-0 md:flex-row md:w-auto md:p-0 md:bg-transparent hidden md:flex">
-                <a href="#_" class="relative">
-                    <span>Home</span>
-                    <span class="w-full h-0.5 bg-gray-900 absolute bottom-0 left-0"></span>
-                </a>
-                <a href="#_" class="relative group">
-                    <span>{{ this.$t('about-me') }}</span>
-                    <span class="w-full h-0.5 bg-black opacity-0 group-hover:opacity-100 transform -translate-y-0.5 group-hover:translate-y-0 transition-all ease-out duration-300 absolute bottom-0 left-0"></span>
-                </a>
-                <a href="#_" class="relative group">
-                    <span>{{ this.$t('my-projects') }}</span>
-                    <span class="w-full h-0.5 bg-black opacity-0 group-hover:opacity-100 transform -translate-y-0.5 group-hover:translate-y-0 transition-all ease-out duration-300 absolute bottom-0 left-0"></span>
-                </a>
+                <NavLink href="/" :active="$page.url === '/'">
+                    Home
+                </NavLink>
+
+                <NavLink href="/about-me" :active="$page.url === 'about-me'">
+                    {{ this.$t('about-me') }}
+                </NavLink>
+
+                <NavLink href="/projects" :active="$page.url.includes('projects')">
+                    {{ this.$t('my-projects') }}
+                </NavLink>
             </nav>
             <div class="absolute right-0 flex items-center h-full pr-10 space-x-6 font-medium">
                 <a href="#_" class="px-6 py-2 transition-colors duration-75 border-2 border-gray-900 rounded-full hover:bg-gray-900 hover:text-white">{{ this.$t('contact-me') }}</a>
@@ -36,7 +35,11 @@
 </template>
 
 <script>
+import NavLink from "./NavLink";
 export default {
-    name: "Navigation"
+    name: "Navigation",
+    components: {
+        NavLink
+    }
 }
 </script>
