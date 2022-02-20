@@ -11,7 +11,7 @@ class Category extends Model
     use HasFactory, HasTranslations;
 
     public array $translatable = [
-        'title'
+        'title', 'description'
     ];
 
     protected array $guarded = [];

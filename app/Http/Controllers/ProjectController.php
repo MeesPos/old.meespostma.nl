@@ -19,9 +19,10 @@ class ProjectController extends Controller
     public function show($slug)
     {
         return Inertia::render('Projects/Show', [
-            'project' => ProjectResource::make(Project::query()
-                ->where('slug', $slug)
-                ->first()
+            'project' => ProjectResource::make(
+                Project::query()
+                    ->where('slug', $slug)
+                    ->first()
             )
         ]);
     }
