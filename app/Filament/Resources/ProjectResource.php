@@ -52,7 +52,7 @@ class ProjectResource extends Resource
                     ->image()
                     ->required(),
 
-                Forms\Components\MarkdownEditor::make('content')
+                Forms\Components\RichEditor::make('content')
                     ->required(),
 
                 Forms\Components\Textarea::make('excerpt')
