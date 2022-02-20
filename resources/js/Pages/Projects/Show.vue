@@ -43,7 +43,13 @@
                     <div class="mt-8 ml-7">
                         <h2 class="mb-3 text-lg font-medium text-gray-900">{{ this.$t('category') }}</h2>
                         <ul>
-                            <li class="flex"><a href="#_" class="flex-1 block py-2 font-serif text-lg hover:underline font-thin text-blue-900">{{ project.category.title }}</a></li>
+                            <li class="flex">
+                                <Link :href="'/category/' + project.category.slug"
+                                      class="flex-1 block py-2 font-serif text-lg hover:underline font-thin text-blue-900"
+                                >
+                                    {{ project.category.title }}
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
