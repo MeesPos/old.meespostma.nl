@@ -21,7 +21,7 @@
                             <p class="mt-1 text-sm text-blue-600">{{ this.$t('home.my-projects.description') }}</p>
                         </div>
                     </div>
-                    <a href="#_" class="inline-flex justify-center flex-shrink-0 w-full px-5 py-3 mt-2 text-xs font-medium text-center text-white uppercase bg-blue-400 sm:rounded-full sm:w-auto">{{ this.$t('my-projects') }}</a>
+                    <Link href="/projects" class="inline-flex justify-center flex-shrink-0 w-full px-5 py-3 mt-2 text-xs font-medium text-center text-white uppercase bg-blue-400 sm:rounded-full sm:w-auto">{{ this.$t('my-projects') }}</Link>
                 </div>
                 <div class="flex flex-col items-center justify-between w-full p-0 overflow-hidden bg-green-100 lg:rounded-2xl sm:flex-row  sm:p-10">
                     <div class="relative flex items-center p-8 sm:p-0">
