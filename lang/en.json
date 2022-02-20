@@ -5,8 +5,15 @@
     "home.my-projects.description": "View all my projects that I am proud of.",
     "home.contact-me.description": "Feel free to send me a message.",
 
+    "projects.detail.github.title": "Check out this project on Github.",
+    "projects.detail.github.button": "Go to Github",
+
+    "projects.detail.live.title": "Check out this project live.",
+    "projects.detail.live.button": "Go to the live version",
+
     "about-me": "About Me",
 
     "my-projects": "My Projects",
-    "contact-me": "Contact Me"
+    "contact-me": "Contact Me",
+    "category": "Category"
 }

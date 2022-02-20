@@ -9,6 +9,8 @@ use Illuminate\Support\Str;
 
 class ProjectResource extends JsonResource
 {
+    public static $wrap = null;
+
     /**
      * Transform the resource into an array.
      *
