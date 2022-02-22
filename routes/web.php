@@ -17,6 +17,8 @@ Route::get('/', function () {
     return \Inertia\Inertia::render('Home');
 });
 
+Route::get('about-me', [\App\Http\Controllers\AboutMeController::class, 'index']);
+
 Route::get('category/{slug}', [\App\Http\Controllers\CategoryController::class, 'index']);
 
 Route::get('projects', [\App\Http\Controllers\ProjectController::class, 'index']);
