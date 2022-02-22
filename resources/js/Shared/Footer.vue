@@ -1,6 +1,4 @@
 <template>
-
-    <!-- Section 1 -->
     <section class="py-10">
         <div class="px-10 mx-auto max-w-7xl">
             <div class="flex flex-col justify-between mt-5 mb-5 text-center sm:mb-0 sm:mt-12 sm:flex-row">
@@ -22,7 +20,6 @@
                     </FooterLink>
                 </ul>
                 <p class="mt-3 text-xs leading-tight text-gray-500 sm:mt-0"> © Mees Postma {{ new Date().getFullYear() }}</p>
-
             </div>
         </div>
     </section>
