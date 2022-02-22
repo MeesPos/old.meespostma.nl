@@ -4,11 +4,11 @@
             <div class="items-start justify-center py-12 bg-gray-100 lg:rounded-xl px-14 md:py-20 xl:px-20 xl:py-20">
                 <div class="flex flex-col items-start justify-center w-full space-y-10 text-left md:w-3/4 sm:text-center md:text-left sm:items-center md:items-start">
                     <div class="relative">
-                        <h1 class="text-4xl leading-tight font-bold text-gray-900 xl:text-5xl">{{ this.$t('home.header.title') }}</h1>
+                        <h1 class="text-4xl leading-tight font-bold text-gray-900 xl:text-5xl">👋 {{ this.$t('home.header.title') }}</h1>
                         <h2 class="text-2xl leading-tight font-medium text-gray-900 xl:text-3xl mt-2">{{ this.$t('home.header.subtitle') }}</h2>
                     </div>
                     <p class="max-w-lg text-gray-600 md:max-w-none">{{ this.$t('home.header.description') }}</p>
-                    <a href="#_" class="w-full px-12 py-5 text-sm font-medium text-center text-white uppercase bg-gray-900 rounded-full sm:w-auto">{{ this.$t('about-me') }}</a>
+                    <Link href="/about-me" class="w-full px-12 py-5 text-sm font-medium text-center text-white uppercase bg-gray-900 rounded-full sm:w-auto">{{ this.$t('about-me') }}</Link>
                 </div>
             </div>
             <!-- start bottom cards -->
